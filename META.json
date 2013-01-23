@@ -1,0 +1,11 @@
+{
+   "name": "ruid",
+   "abstract": "Compact and useful UUID representation",
+   "version": "0.0.1",
+   "maintainer": "Simon Bertrang <janus@errornet.de>",
+   "license": "postgresql",
+   "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+   },
+}
