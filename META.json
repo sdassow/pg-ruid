@@ -1,6 +1,6 @@
 {
    "name": "ruid",
-   "abstract": "Compact and useful UUID representation",
+   "abstract": "Compact and usable UUID representation",
    "version": "0.0.1",
    "maintainer": "Simon Bertrang <janus@errornet.de>",
    "license": "postgresql",
@@ -8,4 +8,15 @@
       "version": "1.0.0",
       "url": "http://pgxn.org/meta/spec.txt"
    },
+   "prereqs": [
+      "uuid-ossp"
+   ],
+   "tags": [
+      "compact",
+      "practical",
+      "unique",
+      "identifier",
+      "ruid",
+      "uuid"
+   ]
 }
