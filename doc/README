@@ -1,0 +1,42 @@
+# RUID - Compact and usable unique identifiers
+
+## Reason
+
+ - UUID representation in hex takes too much space.
+ - Hex does not work as identifier depending on context.
+
+## Solution
+
+ - Encode to base64 for fewer characters.
+ - Pad UUID before encoding and cut off again afterwards
+   to make use of the padding in a way it guarantees a
+   range of start and end characters.
+
+## Example
+
+Comparison of a single UUID vs. RUID:
+
+  5b0ba39c-6597-11e2-9d36-001b211595d1 (36)
+  vs.
+  FsLo5xllxHinTYAGyEVldE (22)
+
+This accumulates very fast and leads to a lot of terminal
+space taken. For example the output of a table with just
+three rows with UUIDs compared to the same output with RUIDs:
+
+### Before
+
+SELECT uuid_generate_v1(), uuid_generate_v1(), uuid_generate_v1();
+           uuid_generate_v1           |           uuid_generate_v1           |           uuid_generate_v1           
+--------------------------------------+--------------------------------------+--------------------------------------
+ 5b0ba39c-6597-11e2-9d36-001b211595d1 | 5b0ba5c2-6597-11e2-a017-001b211595d1 | 5b0ba766-6597-11e2-b5df-001b211595d1
+(1 row)
+
+### After
+
+SELECT uuid_generate_v1()::ruid, uuid_generate_v1()::ruid, uuid_generate_v1()::ruid;
+    uuid_generate_v1    |    uuid_generate_v1    |    uuid_generate_v1    
+------------------------+------------------------+------------------------
+ HnDG6hllxHitpAAGyEVldE | HnDHeJllxHisUEAGyEVldE | HnDH5BllxHioSEAGyEVldE
+(1 row)
+
