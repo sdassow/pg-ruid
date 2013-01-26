@@ -2,4 +2,5 @@
 comment = 'Compact and usable UUID representation'
 default_version = '0.0.1'
 module_pathname = '$libdir/ruid'
+requires = 'uuid-ossp'
 relocatable = true
