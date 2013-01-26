@@ -1,0 +1,3 @@
+
+DROP EXTENSION "ruid";
+
