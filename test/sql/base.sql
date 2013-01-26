@@ -1,0 +1,11 @@
+
+\set ECHO 0
+
+BEGIN;
+
+\i sql/ruid.sql
+
+SELECT 'AAAAAAAAAAAAAAAAAAAAAA'::ruid;
+
+ROLLBACK;
+
