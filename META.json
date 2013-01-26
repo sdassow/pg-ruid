@@ -11,6 +11,14 @@
    "prereqs": [
       "uuid-ossp"
    ],
+   "provides" {
+      "ruid": {
+         "abstract": "Compact and usable UUID representation",
+         "file": "ruid.sql",
+         "docfile": "doc/ruid.mmd",
+         "version": "0.0.1"
+      }
+   },
    "tags": [
       "compact",
       "practical",
