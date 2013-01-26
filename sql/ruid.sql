@@ -23,8 +23,6 @@
 --  SUCH DAMAGE.
 --
 
-BEGIN;
-
 SET search_path TO public;
 SET client_min_messages TO warning;
 
@@ -187,6 +185,4 @@ CREATE OPERATOR CLASS ruid_ops
     OPERATOR 4 >=,  -- 4: greater than or equal
     OPERATOR 5 >,   -- 5: greater than
     FUNCTION 1 ruid_cmp(ruid, ruid);
-
-COMMIT;
 
