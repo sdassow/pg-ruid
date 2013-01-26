@@ -3,9 +3,8 @@
 
 BEGIN;
 
-\i sql/ruid.sql
-
-SELECT 'AAAAAAAAAAAAAAAAAAAAAA'::ruid;
+\i test/sql/base/install.sql
+\i test/sql/base/cast.sql
 
 ROLLBACK;
 
