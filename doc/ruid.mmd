@@ -42,6 +42,15 @@ three columns with UUIDs compared to the same output with RUIDs:
      HnDG6hllxHitpAAGyEVldE | HnDHeJllxHisUEAGyEVldE | HnDH5BllxHioSEAGyEVldE
     (1 row)
 
+## Future Plans
+
+ - Getting rid of uuid-ossp dependency.
+   - Implement UUID version 1 using PostgreSQLs internal information.
+   - UUID version 3 (MD5), 4 (random) and 5 (SHA1) are easy to implement.
+ - Integrate with PostgreSQL core using a type modifier for UUID or as separate
+   but binary compatible type.
+ - Benchmarks to get an idea of possible performance impact.
+ - Measurement of bandwith savings.
 
 ## Copyright and License
 
