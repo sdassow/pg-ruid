@@ -12,6 +12,22 @@
    to make use of the padding in a way it guarantees a
    range of start and end characters.
 
+### Encoding
+
+Base64 is a relatively compact encoding in a range of readable
+characters, and with the two special characters additionally adjusted
+it becomes even more usable in various contexts, like file systems,
+copy-and-paste, URL, XML, CSS, and others.
+
+### Padding
+
+Through the padding bytes the start and end characters
+of the resulting identifiers are in a range of 16 different alpha,
+respectively alpha-numeric characters:
+
+ - Start: A B C D E F G H I J K L M N O P
+ - End: 0 4 8 A E I M Q U Y c g k o s w
+
 ## Example
 
 Comparison of a single UUID vs. RUID:
