@@ -27,6 +27,6 @@ PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
 dist:
-	git archive --format zip --prefix=pg-$(EXTENSION)-$(EXTVERSION)/ \
-	    --output pg-$(EXTENSION)-$(EXTVERSION).zip master
+	git archive --format zip --prefix=$(EXTENSION)-$(EXTVERSION)/ \
+	    --output $(EXTENSION)-$(EXTVERSION).zip master
 
