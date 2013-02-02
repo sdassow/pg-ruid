@@ -28,5 +28,5 @@ include $(PGXS)
 
 dist:
 	git archive --format zip --prefix=pg-$(EXTENSION)-$(EXTVERSION)/ \
-	    --output /tmp/pg-$(EXTENSION)-$(EXTVERSION).zip master
+	    --output pg-$(EXTENSION)-$(EXTVERSION).zip master
 
