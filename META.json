@@ -9,8 +9,8 @@
       "url": "http://pgxn.org/meta/spec.txt"
    },
    "prereqs": {
-      "runtime: {
-         "requires: {
+      "runtime": {
+         "requires": {
              "uuid-ossp": 0
          }
       }
