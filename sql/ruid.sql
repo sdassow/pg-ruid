@@ -24,22 +24,26 @@ SET client_min_messages TO warning;
 CREATE FUNCTION
     ruid_in(CSTRING) RETURNS ruid
     STRICT
-    LANGUAGE C AS 'ruid', 'ruid_in';
+    LANGUAGE C AS 'ruid', 'ruid_in'
+;
 
 CREATE FUNCTION
     ruid_out(ruid) RETURNS CSTRING
     STRICT
-    LANGUAGE C AS 'ruid', 'ruid_out';
+    LANGUAGE C AS 'ruid', 'ruid_out'
+;
 
 CREATE FUNCTION
     ruid_recv(INTERNAL) RETURNS ruid
     STRICT
-    LANGUAGE C AS 'ruid', 'ruid_recv';
+    LANGUAGE C AS 'ruid', 'ruid_recv'
+;
 
 CREATE FUNCTION
     ruid_send(ruid) RETURNS BYTEA
     STRICT
-    LANGUAGE C AS 'ruid', 'ruid_send';
+    LANGUAGE C AS 'ruid', 'ruid_send'
+;
 
 CREATE TYPE ruid (
     INPUT   = ruid_in,   -- for SQL input
@@ -52,7 +56,8 @@ CREATE TYPE ruid (
 );
 
 COMMENT ON TYPE ruid
-    IS 'RUID type';
+    IS 'RUID type'
+;
 
 -- CREATE CAST (CSTRING AS ruid)
 --     WITH FUNCTION ruid_in(CSTRING) AS ASSIGNMENT;
@@ -60,14 +65,12 @@ COMMENT ON TYPE ruid
 -- CREATE CAST (ruid AS CSTRING)
 --     WITH FUNCTION ruid_out(ruid)   AS ASSIGNMENT;
 CREATE CAST (ruid AS uuid)
-    WITHOUT FUNCTION AS ASSIGNMENT;
+    WITHOUT FUNCTION AS ASSIGNMENT
+;
 CREATE CAST (uuid AS ruid)
-    WITHOUT FUNCTION AS ASSIGNMENT;
+    WITHOUT FUNCTION AS ASSIGNMENT
+;
 
-
---
---  the UUID constructor function
---
 
 --
 --  the UUID operators
@@ -76,32 +79,38 @@ CREATE CAST (uuid AS ruid)
 CREATE FUNCTION
     ruid_eq(ruid, ruid) RETURNS BOOL
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_eq';
+    LANGUAGE C AS 'ruid', 'ruid_eq'
+;
 
 CREATE FUNCTION
     ruid_ne(ruid, ruid) RETURNS BOOL
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_ne';
+    LANGUAGE C AS 'ruid', 'ruid_ne'
+;
 
 CREATE FUNCTION
     ruid_lt(ruid, ruid) RETURNS BOOL
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_lt';
+    LANGUAGE C AS 'ruid', 'ruid_lt'
+;
 
 CREATE FUNCTION
     ruid_gt(ruid, ruid) RETURNS BOOL
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_gt';
+    LANGUAGE C AS 'ruid', 'ruid_gt'
+;
 
 CREATE FUNCTION
     ruid_le(ruid, ruid) RETURNS BOOL
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_le';
+    LANGUAGE C AS 'ruid', 'ruid_le'
+;
 
 CREATE FUNCTION
     ruid_ge(ruid, ruid) RETURNS BOOL
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_ge';
+    LANGUAGE C AS 'ruid', 'ruid_ge'
+;
 
 CREATE OPERATOR = (
     leftarg    = ruid,
@@ -156,24 +165,28 @@ CREATE OPERATOR >= (
 CREATE FUNCTION
     ruid_hash(ruid) RETURNS INTEGER
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_hash';
+    LANGUAGE C AS 'ruid', 'ruid_hash'
+;
 
 CREATE FUNCTION
     ruid_cmp(ruid, ruid) RETURNS INTEGER
     IMMUTABLE STRICT
-    LANGUAGE C AS 'ruid', 'ruid_cmp';
+    LANGUAGE C AS 'ruid', 'ruid_cmp'
+;
 
 CREATE OPERATOR CLASS ruid_ops
     DEFAULT FOR TYPE ruid USING hash AS
     OPERATOR 1 =,   -- 1: equal
-    FUNCTION 1 ruid_hash(ruid);
+    FUNCTION 1 ruid_hash(ruid)
+;
 
 CREATE OPERATOR CLASS ruid_ops
-    DEFAULT FOR TYPE ruid USING btree AS
+  DEFAULT FOR TYPE ruid USING btree AS
     OPERATOR 1 <       (ruid, ruid), -- 1: less than
     OPERATOR 2 <=      (ruid, ruid), -- 2: less than or equal
     OPERATOR 3 =       (ruid, ruid), -- 3: equal
     OPERATOR 4 >=      (ruid, ruid), -- 4: greater than or equal
     OPERATOR 5 >       (ruid, ruid), -- 5: greater than
-    FUNCTION 1 ruid_cmp(ruid, ruid);
+    FUNCTION 1 ruid_cmp(ruid, ruid)
+;
 
