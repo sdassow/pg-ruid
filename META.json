@@ -1,6 +1,6 @@
 {
    "name": "ruid",
-   "abstract": "Compact and usable UUID representation",
+   "abstract": "Readable and Usable Identifier",
    "version": "0.0.3",
    "maintainer": "Simon Bertrang <janus@errornet.de>",
    "license": "postgresql",
@@ -17,7 +17,7 @@
    },
    "provides": {
       "ruid": {
-         "abstract": "Compact and usable UUID representation",
+         "abstract": "Readable and Usable Identifier",
          "file": "ruid.sql",
          "docfile": "doc/ruid.mmd",
          "version": "0.0.3"
@@ -27,6 +27,8 @@
       "compact",
       "practical",
       "unique",
+      "readable",
+      "usable",
       "identifier",
       "ruid",
       "uuid"

@@ -68,7 +68,7 @@ CREATE CAST (uuid AS ruid)
 
 
 --
---  the UUID operators
+--  the RUID operators
 --
 
 CREATE FUNCTION

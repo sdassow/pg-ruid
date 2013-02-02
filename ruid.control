@@ -1,6 +1,6 @@
 # ruid extension
-comment = 'Compact and usable UUID representation'
-default_version = '0.0.3'
+comment = 'Readable and Usable Identifier'
+default_version = '0.0.4'
 module_pathname = '$libdir/ruid'
 requires = 'uuid-ossp'
 relocatable = true

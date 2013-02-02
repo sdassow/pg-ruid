@@ -1,4 +1,4 @@
-# RUID - Compact and usable unique identifiers
+# RUID - Readable and Usable Identifier
 
 ## Reason
 
@@ -47,10 +47,9 @@ three columns with UUIDs compared to the same output with RUIDs:
  - Getting rid of uuid-ossp dependency.
    - Implement UUID version 1 using PostgreSQLs internal information.
    - UUID version 3 (MD5), 4 (random) and 5 (SHA1) are easy to implement.
- - Integrate with PostgreSQL core using a type modifier for UUID or as separate
-   but binary compatible type.
+ - Integrate into core using a type modifier for UUID or as separate type.
  - Benchmarks to get an idea of possible performance impact.
- - Measurement of bandwith savings.
+ - Measurement of size/bandwith savings.
 
 ## Copyright and License
 
