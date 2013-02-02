@@ -1,7 +1,7 @@
 {
    "name": "ruid",
    "abstract": "Compact and usable UUID representation",
-   "version": "0.0.2",
+   "version": "0.0.3",
    "maintainer": "Simon Bertrang <janus@errornet.de>",
    "license": "postgresql",
    "meta-spec": {
@@ -20,7 +20,7 @@
          "abstract": "Compact and usable UUID representation",
          "file": "ruid.sql",
          "docfile": "doc/ruid.mmd",
-         "version": "0.0.2"
+         "version": "0.0.3"
       }
    },
    "tags": [

@@ -1,5 +1,9 @@
 Revision history for PostgreSQL extension semver.
 
+0.0.3 2013-02-02 15:41:25
+      - Zap old and commented statements.
+      - Write about future plans.
+
 0.0.2 2013-02-02 15:19:26
       - Documentation fixes.
       - Add Changes.
