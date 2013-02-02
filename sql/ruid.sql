@@ -179,10 +179,10 @@ CREATE OPERATOR CLASS ruid_ops
 
 CREATE OPERATOR CLASS ruid_ops
     DEFAULT FOR TYPE ruid USING btree AS
-    OPERATOR 1 <,   -- 1: less than
-    OPERATOR 2 <=,  -- 2: less than or equal
-    OPERATOR 3 =,   -- 3: equal
-    OPERATOR 4 >=,  -- 4: greater than or equal
-    OPERATOR 5 >,   -- 5: greater than
+    OPERATOR 1 <       (ruid, ruid), -- 1: less than
+    OPERATOR 2 <=      (ruid, ruid), -- 2: less than or equal
+    OPERATOR 3 =       (ruid, ruid), -- 3: equal
+    OPERATOR 4 >=      (ruid, ruid), -- 4: greater than or equal
+    OPERATOR 5 >       (ruid, ruid), -- 5: greater than
     FUNCTION 1 ruid_cmp(ruid, ruid);
 
