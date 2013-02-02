@@ -16,9 +16,11 @@
 
 Comparison of a single UUID vs. RUID:
 
-  5b0ba39c-6597-11e2-9d36-001b211595d1 (36)
+    5b0ba39c-6597-11e2-9d36-001b211595d1 (36)
+
   vs.
-  FsLo5xllxHinTYAGyEVldE (22)
+
+    FsLo5xllxHinTYAGyEVldE (22)
 
 This accumulates very fast and leads to a lot of terminal
 space taken. For example the output of a table with just
@@ -26,19 +28,19 @@ three columns with UUIDs compared to the same output with RUIDs:
 
 ### Before
 
-SELECT uuid_generate_v1(), uuid_generate_v1(), uuid_generate_v1();
-           uuid_generate_v1           |           uuid_generate_v1           |           uuid_generate_v1           
---------------------------------------+--------------------------------------+--------------------------------------
- 5b0ba39c-6597-11e2-9d36-001b211595d1 | 5b0ba5c2-6597-11e2-a017-001b211595d1 | 5b0ba766-6597-11e2-b5df-001b211595d1
-(1 row)
+    SELECT uuid_generate_v1(), uuid_generate_v1(), uuid_generate_v1();
+               uuid_generate_v1           |           uuid_generate_v1           |           uuid_generate_v1           
+    --------------------------------------+--------------------------------------+--------------------------------------
+     5b0ba39c-6597-11e2-9d36-001b211595d1 | 5b0ba5c2-6597-11e2-a017-001b211595d1 | 5b0ba766-6597-11e2-b5df-001b211595d1
+    (1 row)
 
 ### After
 
-SELECT uuid_generate_v1()::ruid, uuid_generate_v1()::ruid, uuid_generate_v1()::ruid;
-    uuid_generate_v1    |    uuid_generate_v1    |    uuid_generate_v1    
-------------------------+------------------------+------------------------
- HnDG6hllxHitpAAGyEVldE | HnDHeJllxHisUEAGyEVldE | HnDH5BllxHioSEAGyEVldE
-(1 row)
+    SELECT uuid_generate_v1()::ruid, uuid_generate_v1()::ruid, uuid_generate_v1()::ruid;
+        uuid_generate_v1    |    uuid_generate_v1    |    uuid_generate_v1    
+    ------------------------+------------------------+------------------------
+     HnDG6hllxHitpAAGyEVldE | HnDHeJllxHisUEAGyEVldE | HnDH5BllxHioSEAGyEVldE
+    (1 row)
 
 
 ## Copyright and License
