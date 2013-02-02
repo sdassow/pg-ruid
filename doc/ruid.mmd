@@ -58,6 +58,26 @@ three columns with UUIDs compared to the same output with RUIDs:
      HnDG6hllxHitpAAGyEVldE | HnDHeJllxHisUEAGyEVldE | HnDH5BllxHioSEAGyEVldE
     (1 row)
 
+## Helper Functions
+
+Since RUID is about usability too, it provides a few helper functions
+to make life with identifiers easier:
+
+ - ruid_nil()
+ - ruid_ns_dns()
+ - ruid_ns_oid()
+ - ruid_ns_url()
+ - ruid_ns_x500()
+ - ruid_v1()
+ - ruid_v1mc()
+ - ruid_v4()
+ - ruid_v5(ruid, text)
+ - ruid_dns(text): same as ruid_v5(ruid_ns_url(), trim(text))
+ - ruid_oid(text): same as ruid_v5(ruid_ns_oid(), trim(text))
+ - ruid_url(text): same as ruid_v5(ruid_ns_url(), trim(text))
+ - ruid_x500(text): same as ruid_v5(ruid_ns_x500(), trim(text))
+ - ruid_sum(text): same as ruid_v5(ruid_nil(), text)
+
 ## Future Plans
 
  - Getting rid of uuid-ossp dependency.

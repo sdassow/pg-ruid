@@ -185,3 +185,77 @@ CREATE OPERATOR CLASS ruid_ops
     FUNCTION 1 ruid_cmp(ruid, ruid)
 ;
 
+--
+-- helper functions
+--
+
+CREATE OR REPLACE FUNCTION ruid_nil()
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT 'AAAAAAAAAAAAAAAAAAAAAA'::ruid
+$$;
+
+CREATE FUNCTION ruid_ns_dns()
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_ns_dns()::ruid
+$$;
+
+CREATE FUNCTION ruid_ns_oid()
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_ns_oid()::ruid
+$$;
+
+CREATE FUNCTION ruid_ns_url()
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_ns_url()::ruid
+$$;
+
+CREATE FUNCTION ruid_ns_x500()
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_ns_x500()::ruid
+$$;
+
+CREATE FUNCTION ruid_v1()
+  RETURNS ruid LANGUAGE sql AS $$
+SELECT uuid_generate_v1()::ruid
+$$;
+
+CREATE FUNCTION ruid_v1mc()
+  RETURNS ruid LANGUAGE sql AS $$
+SELECT uuid_generate_v1mc()::ruid
+$$;
+
+CREATE FUNCTION ruid_v4()
+  RETURNS ruid LANGUAGE sql AS $$
+SELECT uuid_generate_v4()::ruid
+$$;
+
+CREATE FUNCTION ruid_v5(ruid, text)
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_generate_v5($1::uuid, $2)::ruid
+$$;
+
+CREATE FUNCTION ruid_dns(text)
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_generate_v5(uuid_ns_dns(), trim($1))::ruid
+$$;
+
+CREATE FUNCTION ruid_oid(text)
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_generate_v5(uuid_ns_oid(), trim($1))::ruid
+$$;
+
+CREATE FUNCTION ruid_url(text)
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_generate_v5(uuid_ns_url(), trim($1))::ruid
+$$;
+
+CREATE FUNCTION ruid_x500(text)
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_generate_v5(uuid_ns_x500(), trim($1))::ruid
+$$;
+
+CREATE OR REPLACE FUNCTION ruid_sum(text)
+  RETURNS ruid LANGUAGE sql IMMUTABLE AS $$
+SELECT uuid_generate_v5(uuid_nil(), $1)::ruid
+$$;
+
