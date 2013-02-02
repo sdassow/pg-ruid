@@ -11,7 +11,7 @@
    "prereqs": [
       "uuid-ossp"
    ],
-   "provides" {
+   "provides": {
       "ruid": {
          "abstract": "Compact and usable UUID representation",
          "file": "ruid.sql",
