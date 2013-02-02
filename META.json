@@ -8,9 +8,13 @@
       "version": "1.0.0",
       "url": "http://pgxn.org/meta/spec.txt"
    },
-   "prereqs": [
-      "uuid-ossp"
-   ],
+   "prereqs": {
+      "runtime: {
+         "requires: {
+             "uuid-ossp": 0
+         }
+      }
+   },
    "provides": {
       "ruid": {
          "abstract": "Compact and usable UUID representation",
