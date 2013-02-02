@@ -3,6 +3,7 @@ Revision history for PostgreSQL extension semver.
 0.0.4 
       - Adjust abstracts.
       - Rephrase some sentences in documentation.
+      - Provide details about encoding and padding.
 
 0.0.3 2013-02-02 15:41:25
       - Zap old and commented statements.
